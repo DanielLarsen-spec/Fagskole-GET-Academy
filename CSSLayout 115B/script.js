@@ -4,7 +4,7 @@ function updateView(){
 mainDiv.innerHTML = /*HTML*/`
 
 <div class="container">
-    <h1 class="number">0<h1>
+    <div class="number">0</div>
     <button class="up">▲</button>
     <button class="down">▼</button>
 </div>
