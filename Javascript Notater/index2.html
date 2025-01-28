@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+   
+
+<script>
+   let count = 0;
+   addColoredText('red', 400, 'Det');
+    addColoredText('green',240, 'Var');
+    addColoredText('blue', 150, 'en');
+    addColoredText('pink', 500, 'gang');
+    
+    
+    
+    function addColoredText(color, size, word){
+            count++
+        document.getElementById('app').innerHTML += /*HTML*/`
+            <span style="color: ${color}; font-size: ${size}%;">${word} (${count})</span>
+            `;
+        }
+        
+    
+    
+    // addGreen('Det');
+    // addRed('Var');
+    // function addGreen(word){
+    //     document.getElementById('app').innerHTML += /*HTML*/`
+    //     <span style="color: green; font-size: 400%">${word}</span>
+    //     `;
+    // }
+        
+    //  function addRed(word){
+    //     document.getElementById('app').innerHTML += /*HTML*/`
+    //     <span style="color: red; font-size: 240%">${word}</span>        
+    //     `;
+    // }   
+        
+        
+        
+        
+        
+
+</script>
+
+
+</body>
+</html>

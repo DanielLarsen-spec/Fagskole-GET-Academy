@@ -1,0 +1,36 @@
+body{
+margin: 0;
+padding:0;
+height: 100vh;
+}
+
+div.container{
+    margin: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 50px);
+    grid-template-rows: repeat(2,50px);
+    grid-template-areas: 'number up'
+                         'number down';
+    
+                         
+}
+
+.number{
+    grid-area: number;
+    align-content: center;
+    font-size: 55px;
+}
+
+.up{
+grid-area: up;
+align-content: center;
+padding: 15px;
+} 
+
+.down{
+grid-area: down;
+align-content: center;
+padding:15px
+}
+
+
