@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <label for="InputX">Lokasjon X</label>
+    <input id="InputX" type="number"> <br>
+    <label for="InputY">Lokasjon Y</label>
+    <input id="InputY" type="number"><br>
+    <label for="InputChangeBackgroundColor">Bytt bakgrunnsfarge på sirkelen</label>
+    <select id="InputChangeBackgroundColor" type="text">
+        <option>Farger</option>
+        <option value="red">Rød</option>
+        <option value="yellow">Gul</option>
+        <option value="blue">Blå</option>
+        <option value="hotpink">Rosa</option>
+        <option value="green">Grønn</option>
+    </select>
+    <label for="ChangeForegroundColor">Bytt forgrunnsfarge</label>
+    <select id="ChangeForegroundColor">
+        <option>farger</option>
+        <option value="red">Rød</option>
+        <option value="blue">Blå</option>
+        <option value="green">Grønn</option>
+    </select>
+    <button onclick="addCircleFromInput()">Legg til sirkel</button><br>
+      
+
+    <button onclick="addRectangleFromInput()">Legg til rektangel</button>
+    
+<br/>
+<svg 
+  id="mySvg"
+  width="800" 
+  height="600" 
+  style="background-color: lightgray;">
+</svg>
+<script>
+  function addCircle(positionX, positionY, backgroundColor, ForegroundColor) {
+      document.getElementById('mySvg').innerHTML = /*HTML*/`
+          <circle cx= ${positionX} cy= ${positionY} r="40" stroke="${ForegroundColor}" stroke-width="4" fill="${backgroundColor}"/>            
+      `;
+  }
+
+  function addCircleFromInput(){
+   
+    addCircle(
+        document.getElementById('InputX').value, 
+        document.getElementById('InputY').value,
+        document.getElementById('InputChangeBackgroundColor').value,
+        document.getElementById('ChangeForegroundColor').value
+    );
+}
+
+function addRectangle(positionX, positionY, backgroundColor, ForegroundColor){
+    document.getElementById('mySvg').innerHTML = /*HTML*/`
+          <rect width="200" height="100" x= ${positionX} y= ${positionY} rx="10" ry="10" stroke="${ForegroundColor}" stroke-width="4" fill="${backgroundColor}"/>            
+      `;
+    }
+
+function addRectangleFromInput(){
+
+    addRectangle(
+        document.getElementById('InputX').value, 
+        document.getElementById('InputY').value,
+        document.getElementById('InputChangeBackgroundColor').value,
+        document.getElementById('ChangeForegroundColor').value
+    );
+
+
+
+
+}
+
+
+
+
+</script>
+
+
+</body>
+</html>
