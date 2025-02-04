@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="info">
+        alder: <br>
+        <input id="age" onchange="checkIfCanBuyBeer()" type="range" min="1" max="100">
+        <br>
+        ser ut som alder:<br>
+        <input id="looksOlder" onchange="checkIfCanBuyBeer()"> <br>
+        <input id="IDcard" onchange="checkIfCanBuyBeer()" type="checkbox">
+       
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+        let age = document.getElementById('age').valueAsNumber;
+        let looksAge = document.getElementById('looksOlder').valueAsNumber;
+        let hasID = document.getElementById('IDcard').checked;
+        let feedBack;
+        let buyAge = 18;
+        checkIfCanBuyBeer();
+        function checkIfCanBuyBeer(){
+            if(age >= buyAge){
+                feedBack = "ja"
+             
+                if(looksAge >= buyAge) {
+                feedBack = "ja"
+             }  
+            }
+            else if(age < buyAge){
+                feedback = "Nei"
+            }
+
+            else{
+                feedBack = "Nei"
+            }
+            
+            document.getElementById('info').innerHTML = /*HTML*/`
+            
+            
+            alder: <br>
+        <input id="age" onchange="checkIfCanBuyBeer()" type="range" min="1" max="100">
+        <br>
+        ser ut som alder:<br>
+        <input id="looksOlder" onchange="checkIfCanBuyBeer()"> <br>
+        <input id="IDcard" onchange="checkIfCanBuyBeer()" type="checkbox">
+            
+            
+            alder: ${age} <br>
+            ser ut som alder: ${looksAge} <br>
+            har legitimiasjon: ${hasID} <br>
+            kan kjøpe øl: ${feedBack}
+            `;
+        }
+
+                
+                
+                
+
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>
