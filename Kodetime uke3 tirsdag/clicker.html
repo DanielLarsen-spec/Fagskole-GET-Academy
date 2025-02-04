@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    poeng: <span id="points">0</span>
+    <button onclick="addPoints()">Klikk her</button>
+    <button onclick="upgrade()">upgrade</button>
+
+    <script>
+        let points = 0;
+        let pointsPerClick = 1
+        let upgradeCost = 10;
+        
+        function addPoints(){
+            points+=pointsPerClick
+            showPoints();
+        }
+        
+        function upgrade(){
+            if(points >= upgradeCost){
+                pointsPerClick++;
+                points -= 10;
+                showPoints();
+            }
+        }
+        
+        function showPoints(){
+            document.getElementById('points').innerHTML= points;
+        }
+
+
+        
+        
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

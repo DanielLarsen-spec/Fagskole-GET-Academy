@@ -25,7 +25,7 @@ function updateView(){
 }   
     
 function removeActivities(){
-  document.getElementById('app').innerHTML = "";
+  
   
 }
 
