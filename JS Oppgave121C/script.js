@@ -1,21 +1,21 @@
 updateView();
 function updateView(){
-    addInputText();
+    addInputText('fname', 'lname');
     addInputRange();
     addInputNumber();
     addInputRadio();
     addInputCheckbox();
 }
-
-function addInputText(){
+//Sette alt inn i sammem funskjon //
+function addInputText(forname, lastname){
     document.getElementById('app').innerHTML = /*HTML*/`
-    <label for="fname">First name:</label><br/>
-    <input type="text" id="fname"><br/>
+    <label for="${forname}">First name:</label><br/>
+    <input type="text" id="${lastname}"><br/>
     `;
     
     document.getElementById('app').innerHTML += /*HTML*/`
-    <label for="lname">Last name:</label><br/>
-    <input type="text" id="lname"><br/>
+    <label for="$">Last name:</label><br/>
+    <input type="text" id="${addInputTextIdLastname}"><br/>
     `;
 }
     

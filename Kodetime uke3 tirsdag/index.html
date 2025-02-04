@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app"></div>
+
+    <script>
+        showProducts();
+        
+        function showProducts(){
+            document.getElementById('app').innerHTML = /*HTML*/`
+            ${createProductHtml('eple', '10', 'Holder doktoren unna')}
+            ${createProductHtml('klemmentin', '10', 'Det er jo tross alt jul!')}
+            ${createProductHtml('appelsin', '20', 'Det må da være påske snart!')}
+            `;
+        }
+            
+
+        function createProductHtml(productName, price, description){
+            return /*HTML*/`
+            <div class="product-description">
+                <h4>Beskrivelse</h4>
+                ${productName}
+                ${description}
+                ${price}
+                </div>
+                `;
+            }
+                
+                
+                
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
