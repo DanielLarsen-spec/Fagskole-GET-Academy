@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="ticket"></div>
+
+    <script>
+        let price = 0;
+        let hourPrice = 100;
+        function ticketControl(){
+            let age = document.getElementById('age').value;
+            let hours = document.getElementById('hours').value;
+
+            if(age <= 16){
+                price = hourPrice * hours * 0.6
+                ticketType = 'Barnebillett'
+            }else if(age <= 67){
+                price = hourPrice * hours * 0.75
+                ticketType = 'Honnørbillett'
+            }else{
+                price = hourPrice * hours
+                ticketType = 'Voksenbillett'
+            }
+
+            showTicket();
+        }
+
+        function showTicket(){
+
+            document.getElementById('ticket').innerHTML = /*HTML*/`
+            
+            <div class="ticket">
+                <p>SKIDATA</p>
+                <h3>Voksenbillett</h3>
+                <p>Gyldig til....neste gang</p>
+                </div>
+                Pris: ${price}kr <button>Betal</button>
+                `;
+            }
+                
+                
+                
+                
+                
+            
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>

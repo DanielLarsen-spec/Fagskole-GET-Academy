@@ -1,0 +1,30 @@
+body {
+    background-color: #03262c;
+    color: white;
+}
+.container {
+    display: grid;
+    grid-template-columns: 255px 255px 255px;
+    grid-template-rows: 172px 172px;
+    place-self: center;
+    padding-left: 2px;
+    margin-top: 325px;
+    background-color: burlywood;
+}
+
+.card_hidden {
+    background-color: black;
+    opacity: 0;
+}
+
+.card_show {
+    background-color: black;
+    opacity: 10;
+}
+
+img{
+width: 250px;
+margin: 2px;
+justify-content: center;
+    
+}
