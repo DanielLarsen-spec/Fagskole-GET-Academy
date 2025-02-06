@@ -1,34 +1,68 @@
+let firstCard = '';
+let secondCard = '';
+let firstCardId = '';
+let secondCardId = '';
 updateView();
 function updateView() {
-    document.getElementById('app').innerHTML = /*HTML*/`
-        <h1>Memory game</h1>
-        <div id="picBox" class="container">
-            <div onclick="drawPictures()"><img class="card_hidden" src="Memorygame/img/bilde1.jpg"></div>
-            <div onclick="drawPictures()"><img class="card_hidden" src="Memorygame/img/bilde2.jpg"></div>
-            <div onclick="drawPictures()"><img class="card_hidden" src="Memorygame/img/bilde3.jpg"></div>
-            <div onclick="drawPictures()"><img class="card_hidden" src="Memorygame/img/bilde1.jpg"></div>
-            <div onclick="drawPictures()"><img class="card_hidden" src="Memorygame/img/bilde2.jpg"></div>
-            <div onclick="drawPictures()"><img class="card_hidden" src="Memorygame/img/bilde3.jpg"></div>
+    createHiddenCardHtml('img1a', 'Bilder/1.png')
+    createHiddenCardHtml('img2a', 'Bilder/2.png')
+    createHiddenCardHtml('img3a', 'Bilder/3.jpg')
+    createHiddenCardHtml('img1b', 'Bilder/1.png')
+    createHiddenCardHtml('img2b', 'Bilder/2.png')
+    createHiddenCardHtml('img3b', 'Bilder/3.jpg')
+    ;
+    console.log(document.getElementById('app'));
+}
+
+function createHiddenCardHtml(imgId, picture) {
+    document.getElementById('app').innerHTML += /*HTML*/`  
+        <div id="${imgId}" class="hiddenImgStyle">
+            <img onclick="showCard('${imgId}', '${picture}')" class="cardHidden" src="${picture}">
         </div>
     `;
-             
-
-
-
 }
+  
+function showCard(imgId, picture){
+    if(firstCard !== '' && secondCard !== ''){
+        closeCards()
+    }
+    if(firstCard === '') {
+        firstCard = picture;
+        firstCardId = imgId;
 
-function drawPictures(showPic){
-    document.getElementById('picBox').innerHTML = /*HTML*/`
-        
-    `;    
+    }
+    else if(secondCard === '' && imgId !== firstCard) {
+        secondCard = picture;
+        secondCardId = imgId;
 
- 
-    
-
-}
-    
-function win(){
-    document.getElementById('app').innerHTML = /*HTML*/`
-    <div>Gratulerer, du vant</div>
+        if(firstCard === secondCard){
+              
+        }
+    }
+    document.getElementById(imgId).innerHTML = /*HTML*/`
+    <img onclick="showCard('${imgId}', '${picture}')" class="cardShow" src="${picture}">
     `;
+    console.log(firstCard)
+    console.log(firstCardId)
+    console.log(secondCard)
+    console.log(secondCardId)  
+}
+
+function closeCards(){
+    if(firstCard !== ''){
+        document.getElementById(firstCardId).innerHTML = /*HTML*/`
+        <img onclick="showCard('${firstCardId}', '${firstCard}')" class="cardHidden" src="${firstCard}">
+        `; 
+        document.getElementById(secondCardId).innerHTML = /*HTML*/`
+        <img onclick="showCard('${secondCardId}', '${secondCard}')" class="cardHidden" src="${secondCard}">
+        `; 
+    }
+
+}
+
+function reset(){
+    firstCard = '';
+    secondCard = '';
+    firstCardId = '';
+    secondCardId = '';
 }
