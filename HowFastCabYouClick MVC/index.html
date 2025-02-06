@@ -29,16 +29,53 @@
 
 
 <script>
-
+    //model
+    let clicks = 0;
+    let started = false;
+    let clickEnable = true;
+    let fontSize = 12;
+    //View
     function updateView(){
+       
+       
+        let onclickhtml = '';
+        if(clickEnable){
+            onclickhtml = 'onclick="circleClicked()"';
+        }
+        let resultHtml = '';
+        if(!clickEnable){
+            resultHtml = `<div>Du klarte ${clicks}</div>`
+        }
         document.getElementById('app').innerHTML = /*HTML*/`
-        
-        <div class="circle">0</div>
+        <div ${onclickhtml} style="fontSize: ${fontSize}" class="circle">${clicks}</div>
+        ${resultHtml}
         
         `;
-
-
     }
+
+    //Controller
+    function circleClicked(){
+        if(!started) {
+            started = true;
+            //starte timer
+            setTimeout(stop, 2000)
+            console.log(started);
+        }
+        clicks++;
+        fontSize++;
+        updateView();   
+    }
+
+    function stop(){
+        clickEnable = false;
+        started = false;
+        
+        console.log('stopping')
+    }
+     
+    
+     
+     
 
 
 
