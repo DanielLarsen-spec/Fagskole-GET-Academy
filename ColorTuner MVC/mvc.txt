@@ -1,0 +1,4 @@
+MVC:
+Controller endrer bare modellen.
+Modellen er variabler.
+View er HTML, onclick og CSS
