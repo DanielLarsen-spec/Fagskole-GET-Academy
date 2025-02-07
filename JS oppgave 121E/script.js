@@ -1,30 +1,41 @@
-
-function updateView(){
-    squareLocation();
-    addHouseGreenHtml(1, 'house green', 'box', 'square square-one green');
-    addHouseGreenHtml(2,'house green', 'box', 'square square-two green');
-    addHouseGreenHtml(3,'house green', 'box', 'square square-three green');
-    addHouseGreenHtml(4,'house green', 'box', 'square square-four green');
-    addHouseYellowHtml('house yellow', 'box', 'square square-one yellow');
-    
-    
+function updateView() {
+ drawHouses();
 }
-    
 
 
-function addHouseGreenHtml(squareID ,house, box, squares){
-    document.getElementById('board').innerHTML += /*HTML*/`
+
+
+
+
+function drawHouses(){
+    squareLocation();
+    addHouseGreenHtml(1, "house green", "box", "square square-one green");
+    addHouseGreenHtml(2, "house green", "box", "square square-two green");
+    addHouseGreenHtml(3, "house green", "box", "square square-three green");
+    addHouseGreenHtml(4, "house green", "box", "square square-four green");
+    addHouseYellowHtml("house yellow", "box", "square square-one yellow");
+}
+
+
+
+
+function addHouseGreenHtml(squareID, house, box, squares) {
+  let html = document.getElementById("board");
+  html.innerHTML += /*HTML*/ `
     <div class="${house}">
         <div class="${box}">
             <div id="${squareID}" class="${squares}"></div>
-            
            
+            
+        </div>
     </div>
-    `;
-            }
-    
-function addHouseYellowHtml(house, box, square){
-    document.getElementById('board').innerHTML += /*HTML*/`
+           
+            `;
+  return html;
+}
+
+function addHouseYellowHtml(house, box, square) {
+  document.getElementById("board").innerHTML += /*HTML*/ `
     <div class="${house}" style="right: 0">
     <div class="${box}">
     <div class="${square}"></div>
@@ -34,9 +45,9 @@ function addHouseYellowHtml(house, box, square){
     </div>
     </div>
     `;
-        }
-function addHouseRedHtml(){
-    document.getElementById('board').innerHTML += /*HTML*/`
+}
+function addHouseRedHtml() {
+  document.getElementById("board").innerHTML += /*HTML*/ `
     
     <div class="house red" style="bottom: 0">
     <div class="box">
@@ -47,9 +58,9 @@ function addHouseRedHtml(){
     </div>
     </div>
     `;
-}    
-function addHouseBlueHtml(){
-    document.getElementById('board').innerHTML += /*HTML*/`
+}
+function addHouseBlueHtml() {
+  document.getElementById("board").innerHTML += /*HTML*/ `
     <div class="house blue" style="bottom: 0;right: 0">
     <div class="box">
     <div class="square square-one blue"></div>
@@ -59,9 +70,9 @@ function addHouseBlueHtml(){
     </div>
     </div>
     `;
-}    
-function squareLocation(){
-document.getElementById('board').innerHTML += /*HTML*/`
+}
+function squareLocation() {
+  document.getElementById("board").innerHTML += /*HTML*/ `
 <div class="home"></div>
 <div class="cells" style="top: 40%;"></div>
 <div class="cells g-start" style="top: 40%;left:6.66%;"></div>
@@ -147,10 +158,4 @@ document.getElementById('board').innerHTML += /*HTML*/`
         <div class="cells green" style="top: 46.66%;left:6.66%;"></div>
         <div class="cells" style="top: 46.66%;left:0;"></div>
         `;
-        
-        
-    }    
-    
-    
-    
-    
+}
