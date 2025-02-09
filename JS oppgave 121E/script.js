@@ -1,20 +1,35 @@
 function updateView() {
- drawHouses();
-}
-
-
-
-
-
-
-function drawHouses(){
+    let html = document.getElementById('board');
+    html.innerHTML = "";
+    drawHouses('board1');
+    drawHouses('board2');
+    drawHouses('board3');
+    drawHouses('board4');
     squareLocation();
-    addHouseGreenHtml(1, "house green", "box", "square square-one green");
-    addHouseGreenHtml(2, "house green", "box", "square square-two green");
-    addHouseGreenHtml(3, "house green", "box", "square square-three green");
-    addHouseGreenHtml(4, "house green", "box", "square square-four green");
-    addHouseYellowHtml("house yellow", "box", "square square-one yellow");
+    drawHouseYellow();
+    
+    
 }
+
+
+
+
+
+
+function drawHouses(ID){
+    addHouseGreenHtml(ID, "house green", "box", "square square-one green");
+    addHouseGreenHtml(ID, "house green", "box", "square square-two green");
+    addHouseGreenHtml(ID, "house green", "box", "square square-three green");
+    addHouseGreenHtml(ID, "house green", "box", "square square-four green");
+    addHouseYellowHtml("house yellow", "box", "square square-one yellow");
+    
+}
+
+
+
+
+
+    
 
 
 
@@ -31,7 +46,7 @@ function addHouseGreenHtml(squareID, house, box, squares) {
     </div>
            
             `;
-  return html;
+
 }
 
 function addHouseYellowHtml(house, box, square) {
