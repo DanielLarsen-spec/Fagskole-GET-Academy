@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #board {
+        display: grid;
+        grid-template-columns: repeat(8, 100px);
+        grid-template-rows: repeat(8, 100px);
+      }
+
+      #board > div {
+        border: 1px solid lightblue;
+      }
+
+      .selected {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="board"></div>
+
+    <button onclick="moveBox(-8)">▲</button>
+    <button onclick="moveBox(8)">▼</button>
+    <button onclick="moveBox(-1)">◀</button>
+    <button onclick="moveBox(1)">▶</button>
+
+    <script>
+      let selectedSquareIndex = 7;
+      let mainDiv = document.getElementById('board');
+      const size = 64;
+
+      showBoard();
+
+      function showBoard() {
+        // del 1: alle rutene som ikke er valgt før den valgte
+        mainDiv.innerHTML = "";
+        addEmptyBoxes("<div></div>", selectedSquareIndex);
+        // del 2: den valgte ruten
+        const part2 = '<div class="selected"></div>';
+        mainDiv.innerHTML += part2;
+        // del 3  alle rutene som ikke er valgt etter den valgte
+        addEmptyBoxes("<div></div>", size - (selectedSquareIndex + 1));
+      }
+
+      function addEmptyBoxes(pattern, length) {
+        const part = "".padEnd(pattern.length * length, pattern);
+        mainDiv.innerHTML += part;
+      }
+
+      function moveBox(movement) {
+        selectedSquareIndex += movement;
+
+        showBoard();
+      }
+    </script>
+  </body>
+</html>
