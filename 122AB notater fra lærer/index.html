@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #board {
+            display: grid;
+            grid-template-columns: repeat(8, 100px);
+            grid-template-rows: repeat(8, 100px);
+        }
+
+        #board>div {
+            border: 1px solid lightblue;
+        }
+
+        .selected {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="board">
+    </div>
+    <button onclick="moveBox(1)">Right</button>
+    <button onclick="moveBox(8)">Down</button>
+    <button onclick="moveBox(-1)">Left</button>
+    <button onclick="moveBox(-8)">Up</button>
+    
+    
+    <script>
+        let selectedSquareIndex = 7;
+        const size = 64;
+        let cellsPerRow = 8;
+
+        showBoard();
+
+        function showBoard() {
+            // del 1: alle rutene som ikke er valgt før den valgte
+            document.getElementById('board').innerHTML = '';
+            const lengthPart1 = selectedSquareIndex;
+            drawEmptyCells(lengthPart1);
+            
+            
+
+            // del 2: den valgte ruten
+            const part2 = '<div class="selected"></div>';
+            document.getElementById('board').innerHTML += part2;
+
+            // del 3  alle rutene som ikke er valgt etter den valgte
+            const lengthPart3 = size - (selectedSquareIndex + 1);
+           drawEmptyCells(lengthPart3);
+        }
+        
+        function drawEmptyCells(amount){
+            const pattern = '<div></div>';
+            document.getElementById('board').innerHTML += ''.padEnd(pattern.length * amount, pattern);
+            
+        }
+        
+        function isOutOfBounds(){
+            let minPosition = 0;
+            if(((selectedSquareIndex + 1) % 8 !== 0)){
+                return true;
+            }else{
+                return false;
+            }
+
+            //return selectedSquareIndex < minPosition || selectedSquareIndex > size - 1;
+        }
+           
+                    
+        
+        
+        
+        function moveBox(position){
+           selectedSquareIndex += position;
+            if(isOutOfBounds()){
+                selectedSquareIndex -= position;
+            }
+            
+
+            showBoard();
+        }
+
+        
+
+    </script>
+</body>
+
+</html>
