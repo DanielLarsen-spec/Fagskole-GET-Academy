@@ -5,22 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oppgave 122C</title>
 </head>
-<body>
+<body onload="updateView()">
     
     <div id="app"></div>
 
 
 <script>
+let currentFontsize = 10;
 
-function showHtml(){
+function updateView(){
     document.getElementById('app').innerHTML = /*HTML*/`
-    <h1></h1>
-    
-    
-    
-    
+    <div style="${currentFontsize}" id="myDiv">Denne skal forandres på!</div>
+    <button onclick="increaseFontsize()">Øk størrelsen</button> 
+    <button onclick="decreaseFontsize()">Minsk størrelsen</button> 
+   
+   
+   
     `;
 }
+    
+ function increaseFontsize(){
+    document.getElementById('myDiv').style.fontSize = `${currentFontsize}px`;
+    currentFontsize++;
+}   
+   
+function decreaseFontsize(){
+    document.getElementById('myDiv').style.fontSize = `${currentFontsize}px`;
+    currentFontsize--;
+
+}
+
+
+
+    
 
 
 
