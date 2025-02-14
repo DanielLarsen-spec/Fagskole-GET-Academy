@@ -12,18 +12,46 @@
 
 <script>
 let currentFontsize = 10;
-
+let currentFontFamily = "Select font";
+let redValue = 125;
+let blueValue = 125;
+let greenValue = 125;
 function updateView(){
     document.getElementById('app').innerHTML = /*HTML*/`
-    <div style="${currentFontsize}" id="myDiv">Denne skal forandres på!</div>
+    <div style="${currentFontsize}; font-family: ${currentFontFamily}; background-color: rgb(${redValue}, ${greenValue}, ${blueValue});" id="myDiv">Denne skal forandres på!</div>
     <button onclick="increaseFontsize()">Øk størrelsen</button> 
     <button onclick="decreaseFontsize()">Minsk størrelsen</button> 
-   
-   
-   
-    `;
-}
+    <button onclick="changeColorValue(+5, 0, 0)">øk Rød verdi</button>
+    <button onclick="changeColorValue(-5, 0, 0)">minsk rød verdi</button>
+    <button onclick="changeColorValue(0, 0, +5)">øk blå verdi</button>
+    <button onclick="changeColorValue(0, 0, -5)">minsk blå verdi</button>
+    <button onclick="changeColorValue(0, +5, 0)">øk grønn verdi</button>
+    <button onclick="changeColorValue(0, -5, 0)">minsk grønn verdi</button>
     
+    
+    <select onchange="selectFontFamily(this.value)">
+        <option>${currentFontFamily}</option>
+        <option value="Arial" style="font-family: Arial">Arial</option>
+        <option value="Times New Roman" style ="font-family: Times New Roman">Times New Roman</option>
+        <option value="Tahoma" style ="font-family: Tahoma">Tahoma</option>
+        <option value="Georgia" style ="font-family: Georgia">Georgia</option>
+        </select>
+        
+        
+        `;
+        
+        
+   
+   
+}
+
+function selectFontFamily(FontFamily){
+    currentFontFamily = FontFamily;
+    document.getElementById('myDiv').style.fontFamily = `${FontFamily}`
+    
+    updateView();
+}
+
  function increaseFontsize(){
     document.getElementById('myDiv').style.fontSize = `${currentFontsize}px`;
     currentFontsize++;
@@ -32,6 +60,17 @@ function updateView(){
 function decreaseFontsize(){
     document.getElementById('myDiv').style.fontSize = `${currentFontsize}px`;
     currentFontsize--;
+
+}
+
+function changeColorValue(red, green, blue){
+    redValue += red;
+    greenValue += green;
+    blueValue += blue;
+    updateView();
+    
+    
+    
 
 }
 
