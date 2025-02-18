@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+</head>
+<body onload="updateView()">
+    
+
+    <div id="app"></div>
+
+    <script>
+        let activitySaving = "";
+        updateView();
+        function updateView(){
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <input onchange="activityInputField(this.value)">
+            <ul id="textArea">
+                ${activityInputField()};
+                
+                
+                </ul>
+                
+    `;
+    
+}
+    
+    function activityInputField(printActivity){
+        document.getElementById('app').innerHTML += printActivity;
+        
+        
+
+
+        
+        
+    }
+</script>
+
+
+
+
+
+</body>
+</html>
