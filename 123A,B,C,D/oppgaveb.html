@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="app" onload="updateView()">
+    
+
+
+<div ></div>
+
+
+
+<script>
+
+function updateView(){
+drawHtml();
+
+    
+    
+}
+
+function drawHtml(){
+
+
+
+document.getElementById('app').innerHTML = /*html*/`
+<label for="numberInput">Color picker:</label>
+<input id="numberInput" type="number" onchange="userInput(this.value)">
+`;
+
+
+}
+
+function userInput(inputValue){
+    // Definerer fargene.
+    let red = 'red';
+    let green = 'green';
+    let yellow = 'yellow';
+    // Initialiserer en variabel for brukerens input.
+    let userInput = parseInt(inputValue); //Bruker parseInt for å konvertere til tall.
+    // Sjekker verdien på input og sett farge.
+    let color = '';
+    
+    if(userInput >= 70){
+        color = green;
+    }
+    else if(userInput <= 30){
+        color = red;
+    }
+    else{
+        color = yellow;
+    }
+    document.getElementById('app').style.backgroundColor = color;
+}
+    
+   
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+    
+    
+    
+
+
+
+    
+    
+</script>
+</body>
+</html>
