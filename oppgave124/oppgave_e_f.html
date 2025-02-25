@@ -14,20 +14,42 @@
        
 
     function updateView(){
-        document.getElementById('app').innerHTML = 
-        createDiv('Hei', 'blue', 'white');
+        
+        createGrid(3,2, 
+         createDiv('Hei', 'blue', 'white'),
+         +createDiv('Hei', 'blue', 'white'),
+         +createDiv('Hei', 'blue', 'white'),
+         +createDiv('Hei', 'blue', 'white'),
+         +createDiv('Hei', 'blue', 'white'),
+         +createDiv('Hei', 'blue', 'white')
+        );
+        
+
 
 
     }
 
 
     function createDiv(text, foregroundColor, backgroundColor){
-        return /*html*/`
+        return document.getElementById('app').innerHTML += /*html*/`
         <div style="color: ${foregroundColor}; background-color: ${backgroundColor};">${text}</div>
         `;
     }
 
-        
+    function createGrid(columnCount, rowCount, innerHTML){
+
+         return /*html*/`
+         <div style="display: grid; grid-template-columns: repeat(${columnCount}, auto);grid-template-rows: repeat(${rowCount}, auto)">
+            <div>${innerHTML}</div>    
+         </div>
+    
+    
+    
+    
+
+
+`;
+}          
             
 
 
