@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppgave G</title>
+  </head>
+  <body onload="updateView()">
+    <div id="app"></div>
+
+    <script>
+      function updateView() {
+          drawHtml();
+
+      }
+
+
+
+      function drawHtml() {
+        document.getElementById("app").innerHTML = /*html*/ `
+        <div id="DayMain" style="display: flex;align-items: center;">
+            <div id="Day" style="font-size: 300%;">1</div>
+            <div style="display: flex; flex-direction: column;align-items: flex-start;">
+                <button onclick="selectDay(2)">▲</button>
+                <button onclick="selectDay(0)" disabled>▼</button>
+            </div>
+        </div>
+                `;
+      }
+    </script>
+  </body>
+</html>
