@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HangMan</title>
+</head>
+<body>
+    
+
+<div id="app"></div>
+
+
+<script>
+
+drawHtml();
+function drawHtml(){
+evaluateHangman('TERJE', '_E_E', 'J')
+
+
+
+
+}
+
+
+function evaluateHangman(secretWord, currentWord, guess){
+    const index = secretWord.indexOf(guess);
+    if(index == -1) return currentWord;
+    const part1 = currentWord;
+    const part2 = guess;
+    const part3 = currentWord.substring(index +1)
+    return part1 + part2 + part3;
+
+}
+
+
+
+
+</script>
+
+</body>
+</html>

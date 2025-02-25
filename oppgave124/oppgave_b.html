@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgaveb</title>
+</head>
+<body onload="updateView()">
+    
+
+    <div id="app"></div>
+
+
+
+
+    <script>
+        updateView();
+        function updateView(){
+           temperatureConverter((68 - 32) * 5/9, 20 * 9/5 +32)
+            
+            
+        }
+            
+
+        
+        function temperatureConverter(celsius, fahrenheit){
+            
+            return document.getElementById('app').innerHTML = /*html*/`
+            <div>
+                Temperatur i celsius er: ${celsius}<br/>
+                Temperatur i fahrenheit er: ${fahrenheit}
+            </div>
+            `;
+        }
+                
+                
+                
+            
+            
+            
+            
+        // function celsiusToFahrenheitConverter(){
+        //     let celsius = 15;
+        //     let fahrenheit = celsius * 9/5 + 32;
+
+        //     return document.getElementById('app').innerHTML = /*html*/`
+        //         <h1>Fra celsius til fahrenheit:</h1>
+        //     <div>
+        //         Temperatur i celsius:${celsius}<br/>
+        //         Temperatur i fahrenheit: ${fahrenheit}
+        //         </div>
+        //         `;
+        //     }
+            
+        // function fahrenheitToCelsiusConverter(){
+        //     let fahrenheit = 100;
+        //     let celsius = (fahrenheit - 32) * 5/9;
+
+        //     return document.getElementById('app').innerHTML += /*html*/`
+        //     <br/>
+        //         <h1>fra fahrenheit til celsius:</h1>
+        //     <div>
+        //         Temperatur i fahrenheit: ${fahrenheit}<br/>
+        //         Temperatur i celsius: ${celsius}
+                
+        //         </div>
+        //         `;
+        //     }
+                
+            
+
+                
+                
+                
+            
+            
+
+
+
+    </script>
+
+
+</body>
+</html>
