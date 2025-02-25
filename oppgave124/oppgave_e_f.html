@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave E,F</title>
+</head>
+<body onload="updateView()">
+    
+    <div id="app"></div>
+
+    <script>
+
+       
+
+    function updateView(){
+        document.getElementById('app').innerHTML = 
+        createDiv('Hei', 'blue', 'white');
+
+
+    }
+
+
+    function createDiv(text, foregroundColor, backgroundColor){
+        return /*html*/`
+        <div style="color: ${foregroundColor}; background-color: ${backgroundColor};">${text}</div>
+        `;
+    }
+
+        
+            
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>
