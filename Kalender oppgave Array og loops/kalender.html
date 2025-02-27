@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+
+<script>
+    let timeAndDate = '2024-01-'
+    function updateView(){
+        let date = new Date (timeAndDate);
+        document.getElementById('app').innerHTML = /*html*/``
+        
+        ;
+        
+    }
+        
+     function addTime(changeInMs){
+        let date = new Date(timeAndDate);
+        let newDate = new Date(date.getTime() + changeInMs);
+        timeAndDate = newDate.toISOString();
+        updateView();
+
+     }   
+
+     function nextMonth(){
+        let time = new Date(timeAndDate);
+        let startMonth = date.getMonth();
+
+            while(date.getMonth() == startMonth){
+                let time = date.getTime();
+                time += msInDay;
+                date = new Date(time);
+            }
+            timeAndDate = date.toISOString();
+
+
+
+
+     }
+        
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
