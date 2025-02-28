@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave G-I ny</title>
+</head>
+<body onload="createHtml()">
+    
+
+    <div id="app"></div>
+
+
+
+
+    
+    <script>
+
+        function createHtml(){
+            document.getElementById('app').innerHTML = 
+            createNumberSelector(4, 1, 31, 'Day')
+            + createNumberSelector(8, 1, 12, 'Month')
+            + createNumberSelector(2021, 2000, 2025, 'Year');
+        }
+            
+            
+        function createNumberSelector(dateNumber, minimum, maximum, type){
+            return /*html*/`
+            <div  style="display: flex;align-items: center;">
+                <div id="${type}" style="font-size: 300%;">${dateNumber}</div>
+                <div style="display: flex; flex-direction: column;align-items: flex-start;">
+                    <button onclick="selectDate('${type}', 'increase', ${minimum}, ${maximum})">▲</button>
+                    <button onclick="selectDate('${type}', 'decrease', ${minimum}, ${maximum})">▼</button>
+                </div>
+            </div>
+            `;
+        }  
+            
+        function selectDate(type, amount, minimum, maximum){
+            let currentDate = document.getElementById(type).innerHTML;
+            if(currentDate < maximum && amount == 'increase'){
+                currentDate++;
+            }
+            else if(currentDate > minimum && amount == 'decrease'){
+                currentDate--;
+            }
+            document.getElementById(type).innerHTML = currentDate;
+       
+        }    
+
+       
+            
+
+
+
+            
+            
+            
+    </script>
+</body>
+</html>

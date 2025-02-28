@@ -1,52 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Oppgave G</title>
-  </head>
-  <body onload="updateView()">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>124g-i</title>
+</head>
+
+<body>
+
     <div id="app"></div>
 
     <script>
-      function updateView() {
-          drawHtml();
+        
+        createCalendar();
 
-      }
+        function createCalendar(){
+            document.getElementById('app').innerHTML =
+            createNumberSelector(2, 1, 31, 'Day')
+            + createNumberSelector(1, 1, 12, 'Month')
+            + createNumberSelector(2025, 2000, 2050, 'Year')
+            
+        }
+        
+        //showSelectedDate(Day.innerHTML, Month.innerHTML, Year.innerHTML)
+        function createNumberSelector(displayNumber, minimum, maximum, type) {
 
-
-
-      function drawHtml() {
-        document.getElementById("app").innerHTML = /*html*/ `
-        <div id="DayMain" style="display: flex;align-items: center;">
-            <div id="Day" style="font-size: 300%;">1</div>
-            <div style="display: flex; flex-direction: column;align-items: flex-start;">
-                <button onclick="selectDay(2)">▲</button>
-                <button onclick="selectDay(0)" disabled>▼</button>
+            return /*HTML*/`
+            <div id="${type}Main" style="display: flex;align-items: center;">
+                <div id="${type}" style="font-size: 300%;">${displayNumber}</div>
+                <div style="display: flex; flex-direction: column;align-items: flex-start;">
+                    <button onclick="select${type}(${type}.innerHTML, 'increase', ${minimum}, ${maximum})">▲</button>
+                    <button onclick="select${type}(${type}.innerHTML, 'decrease', ${minimum}, ${maximum})">▼</button>
+                </div>
             </div>
-        </div>
-        `;
-      }
-    
-      function createNumberSelector(dayNumber, minNumber, maxNumber, day){
-        return /*html*/`
-        <div>
-                
-            
-            
+            `;
+        }
         
-        
-        
-        </div>
-        
-        `;
-          
-          
-          
-          
-          
-          
-    }
+
+        function selectDay(currentDay, amount, minimum, maximum){
+            //1 eller -1
+
+            if(currentDay < maximum && amount == 'increase'){
+                currentDay++
+            }
+            else if(currentDay > minimum && amount == 'decrease'){
+                currentDay--;
+            }
+            document.getElementById('Day').innerHTML = currentDay;
+        }
+
+        function selectMonth(currentMonth, amount, minimum, maximum){
+            //1 eller -1
+
+            if(currentMonth < maximum && amount == 'increase'){
+                currentMonth++
+            }
+            else if(currentMonth > minimum && amount == 'decrease'){
+                currentMonth--;
+            }
+            document.getElementById('Month').innerHTML = currentMonth;
+        }
+
+        function selectYear(currentYear, amount, minimum, maximum){
+            //1 eller -1
+
+            if(currentYear < maximum && amount == 'increase'){
+                currentYear++
+            }
+            else if(currentYear > minimum && amount == 'decrease'){
+                currentYear--;
+            }
+            document.getElementById('Year').innerHTML = currentYear;
+        }
+
+        // function showSelectedDate(day, month, year){
+        //     document.getElementById('selectedDate').innerHTML = /*HTML*/`
+        //     <div>Du valgte ${day}.${month}.${year}</div>
+        //     `;
+        // }
+
     </script>
-  </body>
+</body>
+
 </html>
