@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave A</title>
+</head>
+<body onload="updateView()">
+    
+
+
+    <div id="app"></div>
+
+    <script>
+
+
+        let points= 0;
+        let pointsPerClick = 1;
+        let upgradeCost = 10;
+
+
+        function updateView(){
+            drawClickerGameHtml();
+
+            
+            
+        }
+
+
+        function drawClickerGameHtml(){
+            document.getElementById('app').innerHTML = /*html*/`
+            <div>Poeng: ${points}</div>
+            <button onclick="addPoints()">Klikk</button>
+            <button onclick="upgradeClicks()">oppgrader</button>
+            `;
+        }
+            
+         function addPoints(){
+            points += pointsPerClick;
+
+            updateView();
+        }   
+
+        function upgradeClicks(){
+            if(points >= upgradeCost){
+                pointsPerClick++;
+                points -= upgradeCost;
+            }
+            updateView();
+        }
+
+
+            
+            
+            
+
+    </script>
+
+</body>
+</html>

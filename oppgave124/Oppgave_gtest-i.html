@@ -20,10 +20,15 @@
             document.getElementById('app').innerHTML = 
             createNumberSelector(4, 1, 31, 'Day')
             + createNumberSelector(8, 1, 12, 'Month')
-            + createNumberSelector(2021, 2000, 2025, 'Year');
+            + createNumberSelector(2021, 2000, 2025, 'Year')
+            + /*html*/`
+            <button onclick="getSelectedDate(Day.innerHTML, Month.innerHTML, Year.innerHTML)">Velg dato</button>
+            <div id="selectedDate"></div>
+            `;
+        
         }
             
-            
+            getSelectedDate(Day.innerHTML, Month.innerHTML, Year.innerHTML)
         function createNumberSelector(dateNumber, minimum, maximum, type){
             return /*html*/`
             <div style="display: flex;align-items: center;">
@@ -48,12 +53,13 @@
        
         }    
 
-       function getSelectedDate(day, month, year){
+       function getSelectedDate(type){
+            document,getElementById('selectedDate').innerHTML = /*html*/`
+            <div>Du har valgt: ${type}.${type}.${type}</div>
         
-           
-           
-           
-           
+        
+        
+        `;
     }
             
             
