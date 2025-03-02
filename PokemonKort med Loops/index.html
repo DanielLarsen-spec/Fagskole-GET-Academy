@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="updateView()">
+    
+
+<div id="app"></div>
+
+
+
+
+
+
+<script>
+const app = document.getElementById('app').innerHTML;
+let pokemons = ['picachu', 'Geodude', 'Charmander', 'Snorlax', 'Lugia', 'Mewtwo', 'Mew'];
+let selectedPokemons = [];
+let selectedPokemon = "";
+function updateView(){
+app.innerHTML = /*html*/`
+<select onchange="selectedPokemon = this.value">
+    ${createPokemonCards()}
+    </select>
+<button onclick="getOption()">Create</button>    
+
+<div class="cards">
+    
+    
+    </div>
+`;
+}
+
+function createPokemonCards(){
+    let html = "";
+    for(let pokemon in pokemons){
+        html += /*html*/`
+        <div class="card">
+           <h2>${pokemons[pokemon]}</h2> 
+            <hr>
+            <p>Lorem ipsum dolor</p>
+            
+            </div>
+            `;
+        }
+        
+        return html;
+    }
+
+function createPokemon(){
+
+
+
+
+
+}
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
