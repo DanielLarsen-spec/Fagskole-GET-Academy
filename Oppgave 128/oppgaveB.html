@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OppgaveB</title>
+</head>
+<body onload="updateView()">
+    
+
+
+
+    <div id="app"></div>
+
+
+    <script>
+        let secretNumber = getRandomNumber(1, 100);
+        let result = "";
+        
+        function updateView(){
+            document.getElementById('app').innerHTML =
+            drawHtml()
+            
+            
+            
+        }
+
+        function drawHtml(){
+            return /*html*/`
+        
+            <input id="inputField" type="number">
+            <button onclick="checkInput()">Submit</button>
+            <div>${result}</div>
+            `;
+        }
+        function getRandomNumber(min, max){
+            return min + Math.floor(Math.random() * (max - min +1));
+        }
+
+        
+        function checkInput(){
+            let InputValue =document.getElementById('inputField').value;
+            if(InputValue > secretNumber){
+                result = 'Too high!'
+            }
+            else if(InputValue < secretNumber){
+                result = 'Too low!'
+            }
+            else{
+                result = "Correct!"
+            }
+            
+            
+            
+            updateView();
+        }
+    </script>
+</body>
+</html>
