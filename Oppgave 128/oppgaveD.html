@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave D</title>
+</head>
+<body onload="updateView()">
+    
+
+
+<div id="app"></div>
+
+<script>
+    //model
+    
+    let playerHand ='';
+    let computerHand = '';
+    let playerPoints = '';
+    let computerPoints = '';
+    
+    //View
+    function updateView(){
+        document.getElementById('app').innerHTML = 
+        drawHtml();
+        
+    }
+        
+    function drawHtml(){
+        return /*html*/`
+           <div>Spillerpoeng ${playerPoints}</div>
+           <div>Computerpoeng ${computerPoints}</div>
+        
+            <div id="playerHand">${playerHand}</div>
+            <div id="computerHand">${computerHand}</div>
+        
+            <button onclick="playerMove('Stein')">stein</button>
+            <button onclick="playerMove('Saks')">saks</button>
+            <button onclick="playerMove('Papir')">papir</button>
+            `;
+            
+    }
+
+
+    //controller
+    function getRandomMove() {
+        computerHand = Math.floor(Math.random()* 3);
+        if(computerHand = 0){
+            computerHand = 'Stein'
+        }
+        else if(computerHand = 1){
+            computerHand = 'Saks'
+        }
+        else{
+            computerHand = 'Papir'
+        }
+        return computerHand;
+    }
+
+       
+    function playerMove(move){
+        if(move == 'Stein'){
+            playerHand = 'Stein';
+            compareMoves();
+        }
+        else if(move == 'Saks'){
+            playerHand = 'Saks';
+            compareMoves();
+        }
+        else{
+            playerHand = 'Papir';
+            compareMoves();
+        }
+
+    }
+    
+    function compareMoves(){
+        getRandomMove();
+        if(playerHand == computerHand){
+            computerPoints++;
+            playerPoints++;
+        }
+        else if(playerHand == 'Stein' && computerHand == 'Saks'){
+            playerPoints++;
+        }
+        else if(playerHand == 'Saks' && computerHand == 'Papir'){
+            playerPoints++;
+        }
+        else if(playerHand == 'Papir' && computerHand == 'Stein'){
+            playerPoints++;
+        }
+        else if(playerHand == 'Stein' && computerHand == 'Papir'){
+            computerPoints++;
+        }
+        else if(playerHand == 'Saks' && computerHand == 'Stein'){
+            computerPoints++;
+        }
+        else if(playerHand == 'Papir' && computerHand == 'Saks'){
+            computerPoints++;
+        }
+        updateView();
+
+    } 
+        
+        
+        
+
+
+    
+
+    
+
+</script>
+
+
+
+</body>
+</html>
