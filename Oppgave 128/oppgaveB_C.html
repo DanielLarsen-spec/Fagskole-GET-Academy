@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OppgaveB</title>
+    <title>OppgaveB og C</title>
 </head>
 <body onload="updateView()">
     
@@ -16,6 +16,7 @@
     <script>
         let secretNumber = getRandomNumber(1, 100);
         let result = "";
+        let timeGuessed = 0;
         
         function updateView(){
             document.getElementById('app').innerHTML =
@@ -31,6 +32,7 @@
             <input id="inputField" type="number">
             <button onclick="checkInput()">Submit</button>
             <div>${result}</div>
+            <div>${timeGuessed}</div>
             `;
         }
         function getRandomNumber(min, max){
@@ -42,18 +44,21 @@
             let InputValue =document.getElementById('inputField').value;
             if(InputValue > secretNumber){
                 result = 'Too high!'
+                timeGuessed++;
             }
             else if(InputValue < secretNumber){
                 result = 'Too low!'
+                timeGuessed++;
             }
             else{
                 result = "Correct!"
+
             }
-            
-            
-            
             updateView();
         }
+            
+            
+            
     </script>
 </body>
 </html>
