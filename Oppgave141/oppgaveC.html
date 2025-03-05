@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 141C</title>
+    <style>
+        .createdDiv{
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            margin: 3px;
+            display: flex;
+            align-items: center;
+            padding: 4px;
+        }
+
+
+    </style>
+</head>
+<body onload="updateView()">
+    
+
+    <div id="app"></div>
+
+
+
+
+    <script>
+        //Model
+        let backgroundColor = '';
+        let foregroundColor = '';
+    //view
+    
+    function updateView(){
+    document.getElementById('app').innerHTML = /*html*/`
+         <select id="selectBackground" onchange="addBackgroundColor(this.value)">
+            <option value ="">Velg bakgrunnsfarge</option>
+            <option value="red">Rød</option>
+            <option value="Blue">Blå</option>
+            <option value="green">Grønn</option>
+        </select>
+            
+            
+        <select id="selectForeground" onchange="addForegroundColor(this.value)">
+            <option value="">Velg forgrunnsfarge</option>
+            <option value="red">Rød</option>
+            <option value="blue">Blå</option>
+            <option value="green">Grønn</option>
+        </select>
+        
+        <button onclick="addNewDiv()">Legg til div</button>
+        `;
+    } 
+    
+    function addNewDiv(){
+        if(backgroundColor != '' && foregroundColor != ''){
+            document.getElementById('app').innerHTML += /*html*/`
+            <div class="createdDiv" style="background-color: ${backgroundColor}; color: ${foregroundColor};"></div>
+            `;
+        }
+            
+    }
+    function addBackgroundColor(color){
+        backgroundColor = color;
+           
+        }
+    function addForegroundColor(color){
+        foregroundColor = color;
+                   
+        }
+        
+        </script>
+
+    
+        
+   
+            
+        
+
+    
+       
+    
+    
+        
+
+
+
+
+</body>
+</html>

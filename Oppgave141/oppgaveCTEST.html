@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>141c</title>
+    <style>
+        .createdDiv{
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            margin: 3px;
+            display: flex;
+            align-items: center;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+    //MODEL
+        let backgroundColor = '';
+        let foregroudColor = '';
+
+    //VIEW
+        updateView()
+        function updateView(){
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <select id="backgroundColor" onchange="changeBackgroundColor(this.value)">
+                <option value="" disabled selected>Velg en bakgrunnsfarge</option>
+                <option value="red">Rød</option>
+                <option value="blue">Blå</option>
+                <option value="green">Grønn</option>
+                <option value="pink">Rosa</option>
+                <option value="yellow">Gul</option>
+            </select>
+
+            <select id="foregroundColor" onchange="changeForegroundColor(this.value)">
+                <option value="" disabled selected>Velg en tekstfarge</option>
+                <option value="red">Rød</option>
+                <option value="blue">Blå</option>
+                <option value="green">Grønn</option>
+                <option value="pink">Rosa</option>
+                <option value="yellow">Gul</option>
+            </select>
+
+            <button onclick="addDiv()">Legg til en div</button>
+            `;
+        }
+
+        function addDiv(){
+            if(backgroundColor != '' && foregroudColor != ''){
+                document.getElementById('app').innerHTML += /*HTML*/`
+                <div class="createdDiv" style="background-color: ${backgroundColor}; color: ${foregroudColor};">You added a div with a ${backgroundColor} background and ${foregroudColor} text</div>
+                `;
+            }
+        }
+
+    //CONTROLLER
+        function changeBackgroundColor(color){
+            backgroundColor = color;
+        }
+        
+        function changeForegroundColor(color){
+            foregroudColor = color;
+        }
+        </script>
+</body>
+</html>
