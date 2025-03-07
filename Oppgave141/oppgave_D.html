@@ -14,7 +14,7 @@
 
 <script>
 //Model
-let currentPage;
+
 let nameInput = '';
 let emailText = '';
 
@@ -29,7 +29,7 @@ function updateView(){
     <label for="emailInput">Epost:</label>
     <input id="emailInput" type="text" onchange="emailInputField(this.value)">
     
-    <button onclick="register()">Registrer deg</button>
+    <button onclick="registeredView()">Registrer deg</button>
     `;
 }
  //Controller
@@ -43,12 +43,9 @@ function emailInputField(email){
     
 }
 
-function registeredUserView(){
-    currentPage === 'registeredView';
 
-}
 
-function register(){
+function registeredView(){
 let hrTag = `<hr/>`;
 document.getElementById('app').innerHTML = 
 nameInput +
