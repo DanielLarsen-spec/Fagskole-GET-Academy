@@ -20,6 +20,7 @@ let emailText = '';
 
 //view
 function updateView(){
+    currentPage = 'mainView';
     document.getElementById('app').innerHTML = /*HTML*/`
     <label for="forName">Navn:</label>
     <input id="forName" type="text" onchange="nameInputField(this.value)"> 
@@ -33,18 +34,32 @@ function updateView(){
 }
  //Controller
 function nameInputField(name){
-nameInput = name;
+    nameInput = name;
+    
 }
 
 function emailInputField(email){
-emailText = email;
+    emailText = email;
+    
+}
+
+function registeredUserView(){
+    currentPage === 'registeredView';
+
 }
 
 function register(){
-let brTag = `<hr/>`;
-document.getElementById('app').innerHTML = document.getElementById('forName').value + brTag + 
-document.getElementById('emailInput').value;
+let hrTag = `<hr/>`;
+document.getElementById('app').innerHTML = 
+nameInput +
+hrTag +
+emailText +
+hrTag +
 
+
+/*HTML*/`
+<button onclick="updateView()">Forandre navn og epost</button>
+`;
 }
 
 
