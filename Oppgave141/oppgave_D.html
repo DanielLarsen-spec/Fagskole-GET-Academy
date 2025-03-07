@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OppgaveD</title>
+</head>
+<body onload="updateView()">
+    
+
+
+<div id="app"></div>
+
+
+<script>
+//Model
+let currentPage;
+let nameInput = '';
+let emailText = '';
+
+//view
+function updateView(){
+    document.getElementById('app').innerHTML = /*HTML*/`
+    <label for="forName">Navn:</label>
+    <input id="forName" type="text" onchange="nameInputField(this.value)"> 
+    <br/>
+    <br/>
+    <label for="emailInput">Epost:</label>
+    <input id="emailInput" type="text" onchange="emailInputField(this.value)">
+    
+    <button onclick="register()">Registrer deg</button>
+    `;
+}
+ //Controller
+function nameInputField(name){
+nameInput = name;
+}
+
+function emailInputField(email){
+emailText = email;
+}
+
+function register(){
+let brTag = `<hr/>`;
+document.getElementById('app').innerHTML = document.getElementById('forName').value + brTag + 
+document.getElementById('emailInput').value;
+
+}
+
+
+</script>
+
+
+</body>
+</html>
