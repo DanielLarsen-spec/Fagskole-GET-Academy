@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 151A</title>
+</head>
+<body onload="updateView()">
+    
+    <div id="app"></div>
+
+
+
+
+
+<script>
+//Model
+let UserTextInput = '';
+let userNumberInput = 0;
+let isTrue = false;
+
+//view
+function updateView(){
+    document.getElementById('app').innerHTML =
+    drawHtml();
+}
+
+function drawHtml(){
+    return /*HTML*/`
+    <label for="textField">Skriv inn teksten her:</label>
+    <input id="textField" type="text" onchange="textInput(this.value)">
+    <br/>
+    <br/>
+
+    <label for="numberInput">Skriv inn maks lengde på teksten:</label>
+    <input id="numberInput" type="number" onchange="numberInput(this.value)">
+    <br/>
+    <button onclick="repeat()">Gjenta</button>
+    `;
+}
+    
+function repeat(){
+    
+
+        if(UserTextInput.length > userNumberInput){
+            UserTextInput += UserTextInput;
+        } 
+    
+    document.getElementById('app').innerHTML += /*HTML*/`
+    <div>${UserTextInput}</div>
+    `;
+    
+    
+    
+}
+    //Controller
+function textInput(text){
+    UserTextInput = text;
+}
+
+function numberInput(maxNumber){
+    userNumberInput = maxNumber;
+}
+
+</script>
+</body>
+</html>
