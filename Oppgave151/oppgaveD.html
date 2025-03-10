@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oppgave 151D</title>
+    <title>Oppgave 151D,E,F</title>
 </head>
-<body>
+<body onload="updateView()">
     
 
     <div id="app"></div>
@@ -13,18 +13,33 @@
 
     <script>
 //Model
-
+let userInput;
+let letterCounted = 0;
 //View
 
 function updateView(){
     document.getElementById('app').innerHTML = /*HTML*/`
-    
-    
+    <label for="textInput">Skriv inn feltet:</label>
+    <input id="textInput" type="text" onchange="letterCounter(this.value)">
+    <button onclick="countValue()">Submit</button>
     
     `;
 }
+
+
     
 //Controller
+function countValue(){
+    
+
+
+
+}
+
+function letterCounter(text){
+    userInput = text;
+}
+
 
 
 
