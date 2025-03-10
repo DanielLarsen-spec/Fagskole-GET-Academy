@@ -1,0 +1,22 @@
+
+
+Dette er måten å reversere en string på i javascript ved hjelp av løkker.{
+
+function reverseTheString(str){
+    for(let i = str.length - 1; i >= 0; i--){
+        newStr += str[i];
+    }
+}
+
+Vi kan også reversere en string ved hjelp av innebygde funskjoner som eksempel:
+
+Const str = 'Daniel Liker fotball';
+
+const newStr = str 
+               .split('')
+               .reverse()
+               .join('');
+            
+            Console.log(newStr)
+
+her reversere vi stringen kun ved hjelp av de innebygde funksjonene.

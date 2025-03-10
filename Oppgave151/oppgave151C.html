@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 151C</title>
+</head>
+<body onload="updateView()">
+    
+
+
+
+<div id="app"></div>
+
+
+
+<script>
+//Model
+    const str = 'Daniel Larsen';
+    let newStr = '';
+//View
+function updateView(){
+    document.getElementById('app').innerHTML = /*HTML*/`
+        <button onclick="reverseTheString('${str}')">Reverser texten</button>
+        ${getTheReversedString()}
+        `;
+    }
+    
+  
+
+function getTheReversedString(){
+    return /*HTML*/`
+    <div>${newStr}</div>
+    `;
+    
+
+}
+
+function reverseTheString(str){
+    for(let i = str.length - 1; i >= 0; i--){
+        newStr += str[i];
+    }
+    updateView();
+}
+
+</script>
+
+
+</body>
+</html>
