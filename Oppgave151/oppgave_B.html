@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave151B</title>
+</head>
+<body onload="updateView()">
+    
+
+
+    <div id="app"></div>
+    <div id="app2"></div>
+
+
+
+<script>
+//Model
+let firstNumber;
+let secondNumber;
+let endOfLoop;
+let amountOfIterations = 0;
+let firstValue;
+
+
+//View
+function updateView(){
+    document.getElementById('app').innerHTML = /*html*/`
+    
+    <label for="startNumber">Skriv inn start nummeret her:</label>
+    <input id="startNumber" type="number" onchange="startNumberInput(this.value)">
+    <hr/>
+    
+    <label for="endNumber">Skriv inn slutt nummeret her:</label>
+    <input id="endNumber" type="number" onchange="endNumberInput(this.value)">
+    <hr/>
+    <label for="loopIterations">Skriv inn hvor mange ganger det skal løkkes ut:</label>
+    <input id="loopIterations" type="number" onchange="endOfLoopInput(this.value)">
+    
+    <button onclick="startTheLoop()">Start løkken</button>
+    `;
+    document.getElementById('app2').innerHTML = /*HTML*/`
+        ${showTheResultsHtml()}
+    
+    `;
+}
+
+function showTheResultsHtml(){
+    if(firstValue){
+        return /*HTML*/`
+        <div>Løkken startet på ${firstValue}, og fungerte så lenge iteratoren sin verdi er mindre enn ${endOfLoop}</div>
+        <div>I hvert steg i løkken, øker første nummeret med ${secondNumber} sin verdi</div>
+        <div>Det tok ${amountOfIterations} iterasjoner for å nå det punktet.</div>
+        `;
+    } return ``;
+        
+        
+
+
+
+
+}
+
+function startTheLoop(){
+    firstValue = firstNumber;
+    for(firstNumber; firstNumber < endOfLoop; firstNumber += secondNumber ){
+        amountOfIterations++;
+    } 
+    updateView();
+
+}
+  
+
+function startNumberInput(firstInput){
+    firstNumber = firstInput;
+}
+
+function endNumberInput(secondInput){
+    secondNumber = secondInput;
+}
+
+function endOfLoopInput(thirdInput){
+    endOfLoop = thirdInput;
+}
+
+
+
+</script>
+
+
+</body>
+</html>
