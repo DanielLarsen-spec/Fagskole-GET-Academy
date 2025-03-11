@@ -15,6 +15,8 @@
 //Model
 let userInput;
 let letterCounted = 0;
+let thisLetter;
+let charA = 'a';
 //View
 
 function updateView(){
@@ -22,16 +24,32 @@ function updateView(){
     <label for="textInput">Skriv inn feltet:</label>
     <input id="textInput" type="text" onchange="letterCounter(this.value)">
     <button onclick="countValue()">Submit</button>
-    
+    ${printResults()}
     `;
 }
 
-
+function printResults(){
+    return /*HTML*/`
+    <div>${thisLetter} inneholder antall a-er: ${letterCounted}</div>
+    
+    
+    `;
+}
     
 //Controller
 function countValue(){
+   for(let i = 0; i <= userInput.length; i++){
+    let thisLetter=userInput.charAt(i);
     
-
+    if(thisLetter === 'a'){
+        letterCounted++;
+    }
+    else if(thisLetter === 'A'){
+        letterCounted++;
+    }
+   }
+    
+updateView();
 
 
 }

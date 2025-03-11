@@ -1,0 +1,19 @@
+
+
+
+
+// Her slår vi sammen tallene som er i listen vår numbers sammen.
+//Vi bruker en foreach løkke og vi lager en ekstra hjelpe variabel som vi slår sammen med number.
+// Her blir tallene i arrayet vårt slått sammen.
+
+function calculateNumbers(){
+    let sum = 0;
+    for(let number of numbers){
+        
+        sum += number;
+        
+
+
+    } 
+    return sum;
+}

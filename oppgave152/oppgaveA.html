@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave152A</title>
+</head>
+<body onload="updateView()">
+    
+
+
+
+    <div id="app"></div>
+
+
+
+<script>
+//Model
+let numbers = [];
+//View
+ 
+function updateView(){
+    document.getElementById('app').innerHTML = /*HTML*/`
+    <div>Her er hvert syvende nummer fra 100-1000!</div>
+    <ol>${getNumbersFromLoop()}</ol>
+    
+    `;
+}
+
+
+function getNumbersFromLoop(){
+    let html = '';
+    for(let i = 100; i < 1000; i+=7){
+        numbers.push(i);
+        
+    }
+    for(let number of numbers){
+        html += `<li>${number}</li>`;
+
+    }
+    return html;
+    
+    updateView();
+
+}
+
+</script>
+
+</body>
+</html>

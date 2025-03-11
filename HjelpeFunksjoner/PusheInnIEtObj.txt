@@ -1,0 +1,30 @@
+
+// Dette er enkelt eksempel på hvordan jeg kan dytte inn et nytt objekt inn i en liste av objekter.
+
+function addColor(){
+    model.colorThemes.push(model.newColorTheme);
+    model.isAdding = false;
+    model.newColorTheme = {};
+
+    updateView();
+
+
+}
+
+//Dette er en enkel slette funksjon med objekter.
+function deleteColor(){
+    model.colorThemes.slice(index, 1);
+
+    updateView();
+}
+
+//Enkelte søkefelt metode. Hvis jeg skal eksempel finne et navn.
+funksjon performSearch(){
+    model.FilteredColorsThemes = [];
+    for(const colorTheme of model.colorThemes){
+
+        
+    }
+
+
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 152B</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body onload="updateView()">
+    
+<div id="app"></div>
+
+
+<script>
+//Model
+let numbers = [22, 16, 46, 56];
+//View
+
+function updateView(){
+    document.getElementById('app').innerHTML = /*HTML*/`
+    <div>Her slår vi sammen summen av listen vår</div>
+    Summen av ${numbers} er ${calculateNumbers()}
+
+
+
+
+
+`;
+}
+
+//Controller
+function calculateNumbers(){
+    let sum = 0;
+    for(let number of numbers){
+        
+        sum += number;
+        
+
+
+    } 
+    return sum;
+
+    
+
+}
+
+
+
+
+
+</script>
+    
+</body>
+</html>

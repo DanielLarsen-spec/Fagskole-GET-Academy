@@ -1,0 +1,19 @@
+//Her er det en måte å printe ut tallverdier fra arrays ved hjelp av loops.
+//Vi Bruker en loops til å øke tallene i arrayet.
+//Og en annen foreach løkke til å legge det i <li></li> taggs.
+
+function getNumbersFromLoop(){
+    let html = '';
+    for(let i = 100; i < 1000; i+=7){
+        numbers.push(i);
+        
+    }
+    for(let number of numbers){
+        html += `<li>${number}</li>`;
+
+    }
+    return html;
+    
+    updateView();
+
+}
